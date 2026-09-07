@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_and_cooking_app/screens/validation_screen.dart';
-import 'package:recipe_and_cooking_app/widget/custom_button.dart';
-import 'package:recipe_and_cooking_app/widget/custom_text_field.dart';
+import 'package:cooking_app/screens/validation_screen.dart';
+import 'package:cooking_app/widget/custom_button.dart';
+import 'package:cooking_app/widget/custom_text_field.dart';
 
 class ForgerPasswordScreen extends StatefulWidget {
   const ForgerPasswordScreen({super.key});

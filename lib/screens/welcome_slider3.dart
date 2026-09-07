@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_and_cooking_app/models/slider_model.dart';
-import 'package:recipe_and_cooking_app/widget/custom_button.dart';
-import 'package:recipe_and_cooking_app/widget/custom_welcome_slider.dart';
+import 'package:cooking_app/models/slider_model.dart';
+import 'package:cooking_app/widget/custom_button.dart';
+import 'package:cooking_app/widget/custom_welcome_slider.dart';
 
 class WelcomSlider3 extends StatelessWidget {
   final int currentIndex;

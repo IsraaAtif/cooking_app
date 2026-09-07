@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_and_cooking_app/models/slider_model.dart';
+import 'package:cooking_app/models/slider_model.dart';
 
 class CustomWelcomeSlider extends StatelessWidget {
   final SliderModel slider;

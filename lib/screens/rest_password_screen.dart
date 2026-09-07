@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:recipe_and_cooking_app/widget/custom_button.dart';
-import 'package:recipe_and_cooking_app/widget/custom_rest_success.dart';
-import 'package:recipe_and_cooking_app/widget/custom_text_field.dart';
-import 'package:recipe_and_cooking_app/widget/custom_text_field_validation.dart';
+import 'package:cooking_app/widget/custom_button.dart';
+import 'package:cooking_app/widget/custom_rest_success.dart';
+import 'package:cooking_app/widget/custom_text_field.dart';
+import 'package:cooking_app/widget/custom_text_field_validation.dart';
 
 class RestPasswordScreen extends StatefulWidget {
   RestPasswordScreen({super.key});

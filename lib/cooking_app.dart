@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class CookingApp extends StatelessWidget {
@@ -8,7 +6,7 @@ class CookingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     home: ,   
+      //  home: ,
     );
   }
 }

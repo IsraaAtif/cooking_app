@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_and_cooking_app/widget/custom_button.dart';
+import 'package:cooking_app/widget/custom_button.dart';
 
 class CustomRestSuccess extends StatelessWidget {
-  CustomRestSuccess({super.key});
+  const CustomRestSuccess({super.key});
 
   @override
   Widget build(BuildContext context) {

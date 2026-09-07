@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_and_cooking_app/screens/rest_password_screen.dart';
-import 'package:recipe_and_cooking_app/widget/custom_button.dart';
-import 'package:recipe_and_cooking_app/widget/custom_validation.dart';
+import 'package:cooking_app/screens/rest_password_screen.dart';
+import 'package:cooking_app/widget/custom_button.dart';
+import 'package:cooking_app/widget/custom_validation.dart';
 
 class ValidationScreen extends StatelessWidget {
   const ValidationScreen({super.key});
