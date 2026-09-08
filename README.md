@@ -4,7 +4,8 @@
 
 | Splash Screen | Sign Up (Unfilled) |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/dc5fa3d4-a70e-4a20-9833-c55dc203b8b9" width="300" /> | <img src="https://github.com/user-attachments/assets/5372546a-713e-4f1c-y801-5bbcec5c9f21" width="300" /> |
+| <img src="https://github.com/user-attachments/assets/dc5fa3d4-a70e-4a20-9833-c55dc203b8b9" width="300" /> | <img width="347" height="752" alt="Screenshot 2026-09-08 145338" src="https://github.com/user-attachments/assets/c0f1a720-41f9-4fab-a5bc-86a45d63eec6" />|
+
 
 | Sign Up (Error State) | Sign Up (Success State) |
 | :---: | :---: |
