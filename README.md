@@ -13,10 +13,13 @@
 
 ### 📱 Login Flow
 
-| Login (Unfilled) | Login (Error State) |
-| :---: | :---: |
+| Login (Unfilled) |
+| :---: | 
 | <img width="357" height="771" alt="Screenshot 2026-09-08 153059" src="https://github.com/user-attachments/assets/7e313b3f-bd6c-4695-9a78-e770a5c49c9a" />
-| <img width="352" height="772" alt="Screenshot 2026-09-08 153149" src="https://github.com/user-attachments/assets/206132c1-206a-4010-9b5a-0ecd94d0bf7c" />
+|
+| Login (Error State) |
+| :---: |
+|<img width="352" height="772" alt="Screenshot 2026-09-08 153149" src="https://github.com/user-attachments/assets/206132c1-206a-4010-9b5a-0ecd94d0bf7c" />
 |
 
 
