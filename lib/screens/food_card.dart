@@ -1,4 +1,5 @@
 import 'package:cooking_app/modules/card_model.dart';
+import 'package:cooking_app/screens/meal_sliver_appbar.dart';
 import 'package:flutter/material.dart';
 
 class FoodCard extends StatelessWidget {
@@ -26,14 +27,20 @@ class FoodCard extends StatelessWidget {
           
           Padding(
             padding: const EdgeInsets.all(6.0),
-            child: Container(
-              width: 35,
-              height: 35,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadiusGeometry.circular(16)
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MealSliverAppbar(img: model.img, title: model.txt,), ), );
+              },
+              child: Container(
+                width: 35,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadiusGeometry.circular(16)
+                ),
+                child: Icon(Icons.add,color: Colors.orange,),
               ),
-              child: Icon(Icons.add,color: Colors.orange,),
             ),
           )
 
