@@ -1,4 +1,7 @@
+import 'package:cooking_app/screens/favorites.dart';
+import 'package:cooking_app/screens/groceries.dart';
 import 'package:cooking_app/screens/meal_plan.dart';
+import 'package:cooking_app/screens/setting.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -11,12 +14,13 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   
   int index = 0;
+  List<Widget> screens = [MealPlan(),Groceries(),Favorites(),Setting()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: MealPlan(),
+      body: screens[index],
 
 
       backgroundColor: Colors.white,
