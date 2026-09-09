@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
-// import 'package:cooking_app/screens/forget_password.dart';
-import 'package:cooking_app/screens/welcom_slider1.dart';
+import 'screens/select_diet_screen.dart'; 
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PageView(
-        children: [
-          // ForgerPasswordScreen(),
-          WelcomSlider1(),
-        ],
+      title: 'Recipe App',
+      theme: ThemeData(
+        fontFamily: 'DM Sans',
+        scaffoldBackgroundColor: const Color(0xFFFAFAFA),
       ),
-    ),
-  );
+      home: const SelectDietScreen(),
+    );
+  }
 }
