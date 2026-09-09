@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:cooking_app/modules/details_module.dart';
 import 'package:cooking_app/widgets/button_meal_plan.dart';
 import 'package:cooking_app/widgets/button_white.dart';
 import 'package:cooking_app/widgets/header.dart';
 import 'package:cooking_app/widgets/preview_card.dart';
+import 'package:cooking_app/widgets/preview_card_botton_sheet.dart';
 import 'package:flutter/material.dart';
 
 class MealSliverAppbar extends StatefulWidget {
@@ -71,7 +74,7 @@ class _MealSliverAppbarState extends State<MealSliverAppbar> {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          
+                          buttomSheet(context);
                         },
                         icon: const Icon(
                           Icons.more_horiz,
@@ -157,3 +160,4 @@ class _MealSliverAppbarState extends State<MealSliverAppbar> {
     );
   }
 }
+
