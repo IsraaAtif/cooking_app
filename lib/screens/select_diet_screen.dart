@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'select_allergies_screen.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/step_progress.dart';
 
 class SelectDietScreen extends StatefulWidget {
   const SelectDietScreen({super.key});
@@ -20,7 +22,6 @@ class _SelectDietScreenState extends State<SelectDietScreen> {
     'Vegan',
   ];
 
-  
   final Set<String> selectedDiets = {};
 
   @override
@@ -42,20 +43,7 @@ class _SelectDietScreenState extends State<SelectDietScreen> {
               ),
               const SizedBox(height: 16),
               
-              Row(
-                children: List.generate(5, (index) {
-                  return Expanded(
-                    child: Container(
-                      height: 12,
-                      margin: EdgeInsets.only(right: index == 4 ? 0 : 6),
-                      decoration: BoxDecoration(
-                        color: index < 1 ? const Color(0xFF33995B) : const Color(0xFFE6E6E6),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                  );
-                }),
-              ),
+              const StepProgressIndicator(currentStep: 1),
               const SizedBox(height: 24),
               const Text(
                 'Pick your diet',
@@ -113,36 +101,16 @@ class _SelectDietScreenState extends State<SelectDietScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 57,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SelectAllergiesScreen(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFF58700),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                child: CustomButton(
+                  text: 'Continue',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SelectAllergiesScreen(),
                       ),
-                    ),
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(
-                        fontFamily: 'DM Sans',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF1A1A1A),
-                      ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ],

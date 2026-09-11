@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'select_dislikes_screen.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/step_progress.dart';
 
 class SelectAllergiesScreen extends StatefulWidget {
   const SelectAllergiesScreen({super.key});
@@ -10,7 +11,6 @@ class SelectAllergiesScreen extends StatefulWidget {
 }
 
 class _SelectAllergiesScreenState extends State<SelectAllergiesScreen> {
-  
   final List<String> allergies = [
     'Gluten',
     'Tree Nut',
@@ -20,10 +20,8 @@ class _SelectAllergiesScreenState extends State<SelectAllergiesScreen> {
     'Nightshade',
     'Soy',
     'Sulfite',
-    
   ];
 
-  
   final Set<String> selectedAllergies = {};
 
   @override
@@ -37,8 +35,6 @@ class _SelectAllergiesScreenState extends State<SelectAllergiesScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 12),
-
-              // زر الرجوع للشاشة الأولى
               IconButton(
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
@@ -47,24 +43,9 @@ class _SelectAllergiesScreenState extends State<SelectAllergiesScreen> {
               ),
               const SizedBox(height: 16),
 
-             
-              Row(
-                children: List.generate(5, (index) {
-                  return Expanded(
-                    child: Container(
-                      height: 12,
-                      margin: EdgeInsets.only(right: index == 4 ? 0 : 6),
-                      decoration: BoxDecoration(
-                        color: index < 2 ? const Color(0xFF33995B) : const Color(0xFFE6E6E6),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                  );
-                }),
-              ),
+              const StepProgressIndicator(currentStep: 2),
               const SizedBox(height: 24),
 
-              // العنوان الرئيسي
               const Text(
                 'Any allergies?',
                 style: TextStyle(
@@ -78,7 +59,6 @@ class _SelectAllergiesScreenState extends State<SelectAllergiesScreen> {
               ),
               const SizedBox(height: 20),
 
-              
               Expanded(
                 child: SingleChildScrollView(
                   child: Wrap(
@@ -125,40 +105,18 @@ class _SelectAllergiesScreenState extends State<SelectAllergiesScreen> {
                 ),
               ),
 
-              //  Continue 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 57,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // الأمر المسؤول عن الانتقال إلى الشاشة الثالثة
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SelectDislikesScreen(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFF58700),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                child: CustomButton(
+                  text: 'Continue',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SelectDislikesScreen(),
                       ),
-                    ),
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(
-                        fontFamily: 'DM Sans',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF1A1A1A),
-                        height: 1.4,
-                      ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ],

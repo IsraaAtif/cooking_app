@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'select_servings_screen.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/step_progress.dart';
 
 class SelectDislikesScreen extends StatefulWidget {
   const SelectDislikesScreen({super.key});
@@ -23,7 +25,6 @@ class _SelectDislikesScreenState extends State<SelectDislikesScreen> {
     'Turnips',
   ];
 
-  
   final Set<String> selectedDislikes = {};
 
   @override
@@ -50,22 +51,7 @@ class _SelectDislikesScreenState extends State<SelectDislikesScreen> {
               ),
               const SizedBox(height: 16),
 
-              Row(
-                children: List.generate(5, (index) {
-                  return Expanded(
-                    child: Container(
-                      height: 12,
-                      margin: EdgeInsets.only(right: index == 4 ? 0 : 6),
-                      decoration: BoxDecoration(
-                        color: index < 3
-                            ? const Color(0xFF33995B)
-                            : const Color(0xFFE6E6E6),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                  );
-                }),
-              ),
+              const StepProgressIndicator(currentStep: 3),
               const SizedBox(height: 24),
 
               const Text(
@@ -134,36 +120,16 @@ class _SelectDislikesScreenState extends State<SelectDislikesScreen> {
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 57,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SelectServingsScreen(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFF58700),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                child: CustomButton(
+                  text: 'Continue',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SelectServingsScreen(),
                       ),
-                    ),
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(
-                        fontFamily: 'DM Sans',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF1A1A1A),
-                        height: 1.4,
-                      ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'meal_plan_screen.dart';
+import '../widgets/primary_button.dart'; 
 
 class SelectReminderScreen extends StatefulWidget {
   const SelectReminderScreen({super.key});
@@ -94,13 +94,7 @@ class _SelectReminderScreenState extends State<SelectReminderScreen> {
                       Expanded(
                         child: TextButton(
                           onPressed: () {
-                            final nav = Navigator.of(context);
                             Navigator.pop(dialogContext);
-                            nav.pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) => const MealPlanScreen(),
-                              ),
-                            );
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -131,13 +125,7 @@ class _SelectReminderScreenState extends State<SelectReminderScreen> {
                       Expanded(
                         child: TextButton(
                           onPressed: () {
-                            final nav = Navigator.of(context);
                             Navigator.pop(dialogContext);
-                            nav.pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) => const MealPlanScreen(),
-                              ),
-                            );
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -372,35 +360,12 @@ class _SelectReminderScreenState extends State<SelectReminderScreen> {
 
               Padding(
                 padding: const EdgeInsets.only(bottom: 24.0),
-                child: SizedBox(
-                  width: double.infinity,
+                child: CustomButton(
+                  text: 'Done',
                   height: 57,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      _showNotificationPermissionDialog(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFF58700),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16,
-                        horizontal: 24,
-                      ),
-                    ),
-                    child: const Text(
-                      'Done',
-                      style: TextStyle(
-                        fontFamily: 'DM Sans',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF1A1A1A),
-                        height: 1.4,
-                      ),
-                    ),
-                  ),
+                  onPressed: () {
+                    _showNotificationPermissionDialog(context);
+                  },
                 ),
               ),
             ],

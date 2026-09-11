@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'meal_plan_screen.dart';
+import '../widgets/primary_button.dart'; 
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({super.key});
@@ -74,17 +74,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                   height: 44,
                   child: Row(
                     children: [
-                      // زر Don't Allow
+                      // زر Don't Allow (يغلق النافذة فقط)
                       Expanded(
                         child: TextButton(
                           onPressed: () {
-                            final nav = Navigator.of(context);
-                            Navigator.pop(dialogContext);
-                            nav.pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) => const MealPlanScreen(),
-                              ),
-                            );
+                            Navigator.pop(dialogContext); 
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -114,17 +108,13 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                         color: Color(0x5C3C3C43),
                       ),
 
-                      // زر Allow
+                      
                       Expanded(
                         child: TextButton(
                           onPressed: () {
-                            final nav = Navigator.of(context);
-                            Navigator.pop(dialogContext);
-                            nav.pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) => const MealPlanScreen(),
-                              ),
-                            );
+                            Navigator.pop(dialogContext); 
+                            
+                            // Navigator.pop(context);
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -271,29 +261,13 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
               const Spacer(),
 
-              SizedBox(
-                width: double.infinity,
+              CustomButton(
+                text: 'Done',
                 height: 52,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _showNotificationPermissionDialog(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFE07A5F),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Done',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                onPressed: () {
+                  
+                  _showNotificationPermissionDialog(context);
+                },
               ),
               const SizedBox(height: 24),
             ],
