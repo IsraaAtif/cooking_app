@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:cooking_app/screens/validation_screen.dart';
-import 'package:cooking_app/widget/custom_button.dart';
-import 'package:cooking_app/widget/custom_text_field.dart';
+import 'package:cooking_app/widgets/custom_button.dart';
+import 'package:cooking_app/widgets/custom_text_field.dart';
 
-class ForgerPasswordScreen extends StatefulWidget {
-  const ForgerPasswordScreen({super.key});
+class ForgetPasswordScreen extends StatefulWidget {
+  const ForgetPasswordScreen({super.key});
 
   @override
-  State<ForgerPasswordScreen> createState() => _ForgerPasswordScreenState();
+  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
 }
 
-class _ForgerPasswordScreenState extends State<ForgerPasswordScreen> {
+class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   final loginFormKey = GlobalKey<FormState>();
 
   @override

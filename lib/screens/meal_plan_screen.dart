@@ -18,15 +18,12 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
         child: Column(
           children: [
             const Spacer(),
-
-            // الحاوية الوسطى النصية مع الزر
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // العنوان الرئيسي (مكتوب بجانب بعضه في سطر واحد بدون عرض محدد يجبره على النزول)
                   const Text(
                     ' Your personalized meal plan',
                     textAlign: TextAlign.center,
@@ -41,8 +38,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
                   ),
 
                   const SizedBox(height: 12),
-
-                  // النص الوصفي
                   const SizedBox(
                     width: 325,
                     child: Text(
@@ -59,14 +54,11 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
                   ),
 
                   const SizedBox(height: 24),
-
-                  // زر Build Your First Meal Plan
                   SizedBox(
                     width: 344,
                     height: 56,
                     child: ElevatedButton(
                       onPressed: () {
-                        // أكشن عند الضغط للبدء
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFF58700),
@@ -96,8 +88,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
             ),
 
             const Spacer(),
-
-            // شريط التنقل السفلي
             Container(
               height: 86,
               decoration: const BoxDecoration(
@@ -112,7 +102,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  // 1. Meal Plan (بالصورة وبحجم 24)
                   _buildImageNavItem(
                     index: 0,
                     imagePath: 'assets/images/Vector.png',
@@ -121,7 +110,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
                     iconWidth: 24,
                     iconHeight: 24,
                   ),
-                  // 2. Groceries (بالصورة)
                   _buildImageNavItem(
                     index: 1,
                     imagePath: 'assets/images/Vector2x.png',
@@ -130,7 +118,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
                     iconWidth: 24,
                     iconHeight: 24,
                   ),
-                  // 3. Favorites (بالأيقونة الأصلية)
                   _buildIconNavItem(
                     index: 2,
                     icon: Icons.favorite_border_rounded,
@@ -139,7 +126,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
                     iconWidth: 24,
                     iconHeight: 24,
                   ),
-                  // 4. Settings (بالأيقونة الأصلية)
                   _buildIconNavItem(
                     index: 3,
                     icon: Icons.settings_outlined,
@@ -156,8 +142,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
       ),
     );
   }
-
-  // دالة لعنصر القائمة الذي يعتمد على صورة مخصصة
   Widget _buildImageNavItem({
     required int index,
     required String imagePath,
@@ -209,8 +193,6 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
       ),
     );
   }
-
-  // دالة لعنصر القائمة الذي يعتمد على الأيقونة الأصلية (لـ Favorites و Settings)
   Widget _buildIconNavItem({
     required int index,
     required IconData icon,

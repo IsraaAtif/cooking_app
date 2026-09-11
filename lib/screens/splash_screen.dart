@@ -38,6 +38,7 @@ class SplashScreen extends StatelessWidget {
 
               CustomButton(
                 text: 'Get Started',
+                textcolor: Colors.black,
                 onPressed: () {
                   // Navigation to Sign Up
                 },

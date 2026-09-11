@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cooking_app/screens/rest_password_screen.dart';
-import 'package:cooking_app/widget/custom_button.dart';
-import 'package:cooking_app/widget/custom_validation.dart';
+import 'package:cooking_app/widgets/custom_button.dart';
+import 'package:cooking_app/widgets/custom_validation.dart';
 
 class ValidationScreen extends StatelessWidget {
   const ValidationScreen({super.key});
@@ -9,7 +9,7 @@ class ValidationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFAF5),
+      backgroundColor: const Color(0xffFFFAF5),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -20,10 +20,12 @@ class ValidationScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back_outlined, size: 30),
+                icon: const Icon(Icons.arrow_back_outlined, size: 30),
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
               ),
-              SizedBox(height: 24),
-              Text(
+              const SizedBox(height: 24),
+              const Text(
                 'Enter 4 digit code',
                 style: TextStyle(
                   fontSize: 32,
@@ -31,34 +33,21 @@ class ValidationScreen extends StatelessWidget {
                   color: Color(0xff1A1A1A),
                 ),
               ),
-              SizedBox(height: 6),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Enter 4 digit code that your receive on your',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff666666),
-                    ),
-                  ),
-                  Text(
-                    'email (cody.fisher45@example.com)',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff1A1A1A),
-                    ),
-                  ),
-                ],
+              const SizedBox(height: 6),
+              const Text(
+                'Enter 4 digit code that you receive on your email (cody.fisher45@example.com)',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff666666),
+                ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               CustomValidation(onCodeChanged: (code) {}),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     'Not received a code? ',
                     style: TextStyle(
@@ -71,27 +60,28 @@ class ValidationScreen extends StatelessWidget {
                     'Resend Code',
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       color: Color(0xff1A1A1A),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 450),
+
+              const Spacer(),
+
               CustomButton(
                 text: 'Continue',
-                ontap: () {
+                textcolor: Colors.black,
+                onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RestPasswordScreen(),
+                      builder: (context) => const RestPasswordScreen(),
                     ),
                   );
                 },
-                color: Color(0xffF58700),
-                textcolor: Color(0xff1A1A1A),
-                textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
+              const SizedBox(height: 16),
             ],
           ),
         ),

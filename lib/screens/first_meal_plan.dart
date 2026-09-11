@@ -1,9 +1,11 @@
+
+
 import 'package:cooking_app/widgets/button_meal_plan.dart';
 import 'package:flutter/material.dart';
 
 class FirstMealPlan extends StatelessWidget {
-  final Function(int) onNext;
-  const FirstMealPlan({super.key, required this.onNext});
+  final Function(int)? onNext;
+  const FirstMealPlan({super.key, this.onNext});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class FirstMealPlan extends StatelessWidget {
               SizedBox(height: 16,),
               GestureDetector(
                 onTap: () {
-                  onNext(1);
+                  onNext?.call(1);
                 },
                 child: ButtonMealPlan(text: "Build Your First Meal Plan"))
             ],

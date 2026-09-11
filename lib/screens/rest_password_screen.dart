@@ -1,148 +1,163 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:cooking_app/widget/custom_button.dart';
-import 'package:cooking_app/widget/custom_rest_success.dart';
-import 'package:cooking_app/widget/custom_text_field.dart';
-import 'package:cooking_app/widget/custom_text_field_validation.dart';
+import 'package:flutter/material.dart';
+import 'package:cooking_app/widgets/custom_button.dart';
+import 'package:cooking_app/widgets/custom_rest_success.dart';
+import 'package:cooking_app/widgets/custom_text_field.dart';
 
 class RestPasswordScreen extends StatefulWidget {
-  RestPasswordScreen({super.key});
+  const RestPasswordScreen({super.key});
 
   @override
   State<RestPasswordScreen> createState() => _RestPasswordScreenState();
 }
 
 class _RestPasswordScreenState extends State<RestPasswordScreen> {
-  final loginFormKey = GlobalKey<FormState>();
-  String password = '';
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _passController = TextEditingController();
+  final TextEditingController _confirmPassController = TextEditingController();
+
+  bool _isObscure1 = true;
+  bool _isObscure2 = true;
+
+  @override
+  void dispose() {
+    _passController.dispose();
+    _confirmPassController.dispose();
+    super.dispose();
+  }
+
+  void _showSuccessDialog() {
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: 'Success',
+      barrierColor: Colors.black26,
+      transitionDuration: const Duration(milliseconds: 200),
+      pageBuilder: (context, anim1, anim2) {
+        return BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: const CustomRestSuccess(),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFAF5),
+      backgroundColor: const Color(0xffFFFAF5),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back_outlined, size: 30),
-              ),
-              SizedBox(height: 24),
-              Text(
-                'Rest Password',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff1A1A1A),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(Icons.arrow_back, size: 28),
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
                 ),
-              ),
-              SizedBox(height: 6),
-              Text(
-                'Set the new password for your account.',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff666666),
+                const SizedBox(height: 20),
+
+                const Text(
+                  'Reset password',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff1A1A1A),
+                  ),
                 ),
-              ),
-              SizedBox(height: 32),
-              CustomTextFieldValidator(
-                formKey: loginFormKey,
-                children: [
-                  CustomTextField(
-                    label: 'Password',
-                    labelColor: Color(0xff677294),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-
-                    onChanged: (value) {
-                      password = value;
-                    },
-
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
-                      }
-
-                      if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-                        return 'Password must contain at least one special character';
-                      }
-
-                      if (!value.contains(RegExp(r'[A-Z]'))) {
-                        return 'Password must contain at least one uppercase letter';
-                      }
-
-                      if (!value.contains(RegExp(r'[0-9]'))) {
-                        return 'Password must contain at least one number';
-                      }
-
-                      if (value.length < 10) {
-                        return 'Password must be at least 10 characters';
-                      }
-
-                      return null;
-                    },
-
-                    isOutline: true,
+                const SizedBox(height: 8),
+                const Text(
+                  'Set the new password for your account.',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xff666666),
                   ),
-
-                  SizedBox(height: 15),
-
-                  CustomTextField(
-                    label: 'Re-enter Password',
-                    labelColor: Color(0xff677294),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please re-enter your password';
-                      }
-
-                      if (value != password) {
-                        return 'Passwords do not match';
-                      }
-
-                      return null;
-                    },
-
-                    isOutline: true,
-                  ),
-
-                  SizedBox(height: 380),
-                  CustomButton(
-                    text: 'Set a New Password',
-                    ontap: () {
-                      if (loginFormKey.currentState!.validate())
-                        print('Login OK');
-                      showGeneralDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        barrierLabel: 'Success',
-                        barrierColor: Colors.transparent,
-                        pageBuilder: (context, animation, secondaryAnimation) {
-                          return BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                            child: Center(child: CustomRestSuccess()),
-                          );
-                        },
-                      );
-                    },
-                    color: const Color(0xffF58700),
-                    textcolor: const Color(0xff1A1A1A),
-                    textStyle: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
+                ),
+                const SizedBox(height: 28),
+                CustomTextField(
+                  label: 'Password',
+                  labelColor: const Color(0xff1A1A1A),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  isOutline: true,
+                  controller: _passController,
+                  isObscure: _isObscure1,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isObscure1
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                      color: const Color(0xff1A1A1A),
                     ),
+                    onPressed: () {
+                      setState(() {
+                        _isObscure1 = !_isObscure1;
+                      });
+                    },
                   ),
-                ],
-              ),
-            ],
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'Please enter password';
+                    }
+                    if (val.length < 6) {
+                      return 'Password must be at least 6 characters';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 20),
+                CustomTextField(
+                  label: 'Re-enter Password',
+                  labelColor: const Color(0xff1A1A1A),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  isOutline: true,
+                  controller: _confirmPassController,
+                  isObscure: _isObscure2,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isObscure2
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                      color: const Color(0xff1A1A1A),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isObscure2 = !_isObscure2;
+                      });
+                    },
+                  ),
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'Please re-enter password';
+                    }
+                    if (val != _passController.text) {
+                      return 'Passwords do not match';
+                    }
+                    return null;
+                  },
+                ),
+
+                const Spacer(),
+
+                CustomButton(
+                  text: 'Set a New Password',
+                  textcolor: Colors.black,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _showSuccessDialog();
+                    }
+                  },
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
           ),
         ),
       ),

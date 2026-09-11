@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:cooking_app/models/slider_model.dart';
-import 'package:cooking_app/widget/custom_button.dart';
-import 'package:cooking_app/widget/custom_welcome_slider.dart';
+import 'package:cooking_app/screens/login_screen.dart'; 
+import 'package:cooking_app/widgets/custom_button.dart';
+import 'package:cooking_app/widgets/custom_welcome_slider.dart';
 
 class WelcomSlider3 extends StatelessWidget {
   final int currentIndex;
-  const WelcomSlider3({super.key, required this.currentIndex});
+  const WelcomSlider3({super.key, this.currentIndex = 2});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFAF5),
+      backgroundColor: const Color(0xffFFFAF5),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -22,7 +23,7 @@ class WelcomSlider3 extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back_outlined, size: 25),
+                  icon: const Icon(Icons.arrow_back_outlined, size: 25),
                 ),
                 const SizedBox(height: 20),
                 CustomWelcomeSlider(
@@ -31,34 +32,40 @@ class WelcomSlider3 extends StatelessWidget {
                     title: 'Delicious, healthy meals made easy',
                     description:
                         'Easily cook healthy, delicious meals in about 30 minutes, from start to finish.',
-                  ).sliders[2],
-                  currentIndex: 2,
+                  ),
+                  currentIndex: currentIndex,
                 ),
+                const SizedBox(height: 20),
                 CustomButton(
-                  text: 'Continue',
+                  text: 'Get Started', 
                   ontap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => const WelcomSlider2(
-
-                    //     ),
-                    //   ),
-                    // );
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
                   },
                   color: const Color(0xffF58700),
                   textcolor: Colors.white,
                   textStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 10),
                 Center(
                   child: TextButton(
-                    onPressed: () {},
-                    child: Text(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
                       'Skip',
                       style: TextStyle(
                         fontSize: 18,

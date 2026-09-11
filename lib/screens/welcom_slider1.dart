@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cooking_app/models/slider_model.dart';
 import 'package:cooking_app/screens/welcome_slider2.dart';
-import 'package:cooking_app/widget/custom_button.dart';
-import 'package:cooking_app/widget/custom_welcome_slider.dart';
+import 'package:cooking_app/widgets/custom_button.dart';
+import 'package:cooking_app/widgets/custom_welcome_slider.dart';
 
 class WelcomSlider1 extends StatelessWidget {
   const WelcomSlider1({super.key});
@@ -52,7 +52,7 @@ class WelcomSlider1 extends StatelessWidget {
                   textStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 10),
